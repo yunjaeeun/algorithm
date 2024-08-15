@@ -40,7 +40,7 @@ for tc in range(1, T + 1):
                     type_1 += arr[i][j - k]
                 if i + k < N and j + k < N:
                     type_2 += arr[i + k][j + k]
-                if 0 <= i - k and 0 <= j + k:
+                if 0 <= i - k and 0 <= j - k:
                     type_2 += arr[i - k][j - k]
                 if 0 <= i - k and j + k < N:
                     type_2 += arr[i - k][j + k]
