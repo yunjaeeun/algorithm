@@ -7,12 +7,12 @@ for tc in range(1, T + 1):
     color_cnt = []
 
     result = 0
+    isBlue = False
+    isRed = False
     for i in range(N):
         w_cnt = 0
         b_cnt = 0
         r_cnt = 0
-        isBlue = False
-        isRed = False
         for j in range(M):
             # 최소조건
             if i == 0 and flag[i][j] != "W":
@@ -44,10 +44,10 @@ for tc in range(1, T + 1):
 
     # print(color_cnt)
 
-            # if isBlue and not isRed:
-            #     pass
-            #
-            # if isRed:
-            #     pass
+    # if isBlue and not isRed:
+    #     pass
+    #
+    # if isRed:
+    #     pass
 
     print(f"#{tc} {result}")
