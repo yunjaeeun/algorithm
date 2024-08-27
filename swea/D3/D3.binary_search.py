@@ -71,36 +71,56 @@
 #
 #     print(f"#{tc} {num_arr[N//2]} {my_node[int(N/2) - 1]}")
 
-def make_node(arr):
-    if len(arr) == 1:
-        my_node.append(arr[0])
-        return
+# def make_node(arr):
+#     if len(arr) == 1:
+#         my_node.append(arr[0])
+#         return
+#
+#     # 중간값 추가
+#     mid = len(arr) // 2
+#     my_node.append(num_arr[mid])
+#
+#     if len(arr) > 2:
+#         left = arr[:mid]
+#         make_node(left)
+#         right = arr[mid + 1:]
+#         make_node(right)
+#
+#     if len(arr) == 2:
+#         left = arr[0]
+#         right = arr[1]
+#         my_node.append(right)
+#         my_node.append(left)
+#         return
+#
+#
+#
+#
+# T = int(input())
+# for tc in range(1, T + 1):
+#     N = int(input())
+#     num_arr = list(range(1, N + 1))
+#     my_node = []
+#     make_node(num_arr)
+#
+#     print(my_node)
 
-    # 중간값 추가
-    mid = len(arr) // 2
-    my_node.append(num_arr[mid])
-
-    if len(arr) > 2:
-        left = arr[:mid]
-        make_node(left)
-        right = arr[mid + 1:]
-        make_node(right)
-
-    if len(arr) == 2:
-        left = arr[0]
-        right = arr[1]
-        my_node.append(right)
-        my_node.append(left)
-        return
-
-
+def make_tree(t):
+    global cnt
+    if t <= N:
+        make_tree(t * 2)
+        tree[t] = cnt
+        cnt += 1
+        make_tree(t * 2 + 1)
 
 
 T = int(input())
 for tc in range(1, T + 1):
     N = int(input())
-    num_arr = list(range(1, N + 1))
-    my_node = []
-    make_node(num_arr)
+    tree = [0] * (N + 1)
 
-    print(my_node)
+    cnt = 1
+
+    make_tree(1)
+
+    print(f"#{tc} {tree[1]} {tree[int(N / 2)]}")
