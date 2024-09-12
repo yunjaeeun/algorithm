@@ -22,3 +22,4 @@ while member:
 
 print("blue_member =", *blue)
 print("purple_member =", *purple)
+# git test
