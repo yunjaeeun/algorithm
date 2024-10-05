@@ -1,3 +1,5 @@
+package silver;
+
 import java.util.Scanner;
 
 public class No2480 {
