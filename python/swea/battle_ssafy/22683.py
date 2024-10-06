@@ -1,5 +1,5 @@
-dr = [1, -1, 0, 0]
-dc = [0, 0, 1, -1]
+di = [1, -1, 0, 0]
+dj = [0, 0, 1, -1]
 
 
 def is_valid(r, c):
@@ -21,7 +21,7 @@ def find_root(r, c, father, cnt, status):
             return
 
     for i in range(4):
-        nr, nc = r + dr[i], c + dc[i]
+        nr, nc = r + di[i], c + dj[i]
         if is_valid(nr, nc) and visited[nr][nc] != 1:
             if arr[nr][nc] == "G" or arr[nr][nc] == "Y":
                 visited[nr][nc] = 1
