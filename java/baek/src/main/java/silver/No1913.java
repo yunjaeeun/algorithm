@@ -9,74 +9,69 @@ public class No1913 {
         sc.nextLine();
         int M = sc.nextInt();
         int[][] arr = new int[N][N];
-        int[] dr = {-1, 0, 1, 0};
+        /* 델타 생성 */
+        int[] dr = {1, 0, -1, 0};
         int[] dc = {0, 1, 0, -1};
-        int r = N / 2;
-        int c = N / 2;
-        arr[r][c] = 1;
-        String direction = "U";
+        int r = 0;
+        int c = 0;
+        arr[r][c] = N * N;
+        char direction = 'D';      // 진행방향을 저장할 변수
         String mIdx = "";
-        int c_num = 0;
-        while (arr[r][c] < N * N) {
-            if (c_num == N * N) {
-                break;
-            }
 
-            if (direction.equals("U")) {
+        while (arr[r][c] != 1) {
+            /* 아래 -> 오른쪽 -> 위 -> 왼쪽으로 밖에서부터 배열을 채움 */
+            if (direction == 'D') {
                 while (true) {
                     int nr = r + dr[0];
                     int nc = c + dc[0];
-                    if (nr >= 0 && nr < N && nc >= 0 && nc < N && arr[nr][nc] == 0) {
-                        arr[nr][nc] = arr[r][c] + 1;
+                    /* 배열을 벗어나지 않고 다음 칸을 채우지 않았으면 이동 후 채움 */
+                    if (0 <= nr && nr < N && 0 <= nc && nc < N && arr[nr][nc] == 0) {
+                        arr[nr][nc] = arr[r][c] - 1;
                         r = nr;
                         c = nc;
-                        c_num = arr[r][c] + 1;
-                        continue;
+                    } else {
+                        direction = 'R';
+                        break;
                     }
-                    direction = "R";
-                    break;
                 }
-            } else if (direction.equals("R")) {
+            } else if (direction == 'R') {
                 while (true) {
                     int nr = r + dr[1];
                     int nc = c + dc[1];
-                    if (nr >= 0 && nr < N && nc >= 0 && nc < N && arr[nr][nc] == 0) {
-                        arr[nr][nc] = arr[r][c] + 1;
+                    if (0 <= nr && nr < N && 0 <= nc && nc < N && arr[nr][nc] == 0) {
+                        arr[nr][nc] = arr[r][c] - 1;
                         r = nr;
                         c = nc;
-                        c_num = arr[r][c] + 1;
-                        continue;
+                    } else {
+                        direction = 'U';
+                        break;
                     }
-                    direction = "D";
-                    break;
                 }
-            } else if (direction.equals("D")) {
+            } else if (direction == 'U') {
                 while (true) {
                     int nr = r + dr[2];
                     int nc = c + dc[2];
-                    if (nr >= 0 && nr < N && nc >= 0 && nc < N && arr[nr][nc] == 0) {
-                        arr[nr][nc] = arr[r][c] + 1;
+                    if (0 <= nr && nr < N && 0 <= nc && nc < N && arr[nr][nc] == 0) {
+                        arr[nr][nc] = arr[r][c] - 1;
                         r = nr;
                         c = nc;
-                        c_num = arr[r][c] + 1;
-                        continue;
+                    } else {
+                        direction = 'L';
+                        break;
                     }
-                    direction = "L";
-                    break;
                 }
-            } else if (direction.equals("L")) {
+            } else if (direction == 'L') {
                 while (true) {
                     int nr = r + dr[3];
                     int nc = c + dc[3];
-                    if (nr >= 0 && nr < N && nc >= 0 && nc < N && arr[nr][nc] == 0) {
-                        arr[nr][nc] = arr[r][c] + 1;
+                    if (0 <= nr && nr < N && 0 <= nc && nc < N && arr[nr][nc] == 0) {
+                        arr[nr][nc] = arr[r][c] - 1;
                         r = nr;
                         c = nc;
-                        c_num = arr[r][c] + 1;
-                        continue;
+                    } else {
+                        direction = 'D';
+                        break;
                     }
-                    direction = "U";
-                    break;
                 }
             }
         }
@@ -84,9 +79,13 @@ public class No1913 {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 System.out.print(arr[i][j] + " ");
+                if (arr[i][j] == M) {
+                    mIdx = (i + 1) + " " + (j + 1);
+                }
             }
             System.out.println();
         }
+
         System.out.println(mIdx);
     }
 }
