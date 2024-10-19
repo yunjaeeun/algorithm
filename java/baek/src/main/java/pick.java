@@ -8,8 +8,7 @@ public class pick {
         ));
 
         Set<String> done = new HashSet<>(Arrays.asList(
-                "강지민", "강현호", "권남희", "김민철", "김홍범", "김지원", "박주찬",
-                "신희원", "윤재은", "윤희준", "이국건", "임남기"
+
         ));
 
         List<String> rest = new ArrayList<>(peoples);
