@@ -34,7 +34,7 @@ public class no16173 {
 
     private static String find_root(int r, int c, int cnt) {    // cnt = 가야 할 칸수
         if (r == N - 1 && c == N - 1) {     // 도착했다면
-            return "HaruHaru";
+           return "HaruHaru";
         }
 
         for (int i = 0; i < 2; i++) {
