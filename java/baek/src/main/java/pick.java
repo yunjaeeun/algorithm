@@ -9,7 +9,7 @@ public class pick {
 
         Set<String> done = new HashSet<>(Arrays.asList(
 
-        ));
+                ));
 
         List<String> rest = new ArrayList<>(peoples);
         rest.removeAll(done);
