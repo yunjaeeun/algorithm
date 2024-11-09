@@ -7,12 +7,11 @@ public class No1284 {
         Scanner sc = new Scanner(System.in);
         while (true) {
             String a = sc.nextLine();
-            if(a.equals("0")){
+            if(a.equals("0")) {
                 break;
             }
 
             int aLen = a.length();
-
             int zero = 0;
             int one = 0;
             int other = 0;
