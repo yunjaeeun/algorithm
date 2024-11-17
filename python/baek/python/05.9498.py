@@ -10,3 +10,5 @@ elif 69 >= a >= 60:
     print('D')
 else:
     print('F')
+
+# test
