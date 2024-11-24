@@ -16,7 +16,6 @@ public class No6609 {
             int egg = 0;
             for (int i = 0; i < N; i++) {       // N주만큼반복
                 egg = mosquito * E;     // 알의 갯수 구하기
-                /* 새로 생긴 알, 번데기, 유충이 포함되서 계산 되지 않게 순서 설정 */
                 mosquito = pupa / S;
                 pupa = larva / R;
                 larva = egg;
