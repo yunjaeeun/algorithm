@@ -9,6 +9,6 @@ public class no24263 {
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
         int n= Integer.parseInt(br.readLine());
         System.out.println(n);
-        System.out.println('1');
+        System.out.println("1");
     }
 }
